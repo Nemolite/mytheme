@@ -8,7 +8,7 @@
 <body>
 
 <!-- Общий контейнер для табов -->
-<div class="tabs">
+<div class="tabs" id="myColor">
    
    <!--  Контейнер с вкладками   -->
    <ul class="tab-header">

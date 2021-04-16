@@ -24,6 +24,23 @@ jsTriggers.forEach(function(trigger) {
 });
 
 /**
+ * День-ночь
+ */
+
+ var data = new Date();
+ var obj=document.getElementById("myColor");
+
+ if (data.getHours() > 0 && data.getHours() < 6) {
+    obj.style.color = pink;
+    obj.style.background = blue;
+ }else{
+    obj.style.color = '#000';
+    obj.style.background = '#40C4FF';
+ }
+
+
+
+/**
  * Работа супер табов
  */
  var jsTriggersSuper = document.querySelectorAll('.js-tab-trigger-super'),
