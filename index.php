@@ -12,9 +12,27 @@
    
    <!--  Контейнер с вкладками   -->
    <ul class="tab-header">
-      <li class="tab-header__item js-tab-trigger active" data-tab="1">Первая</li>
-      <li class="tab-header__item js-tab-trigger" data-tab="2">Вторая</li>
-      <li class="tab-header__item js-tab-trigger" data-tab="3">Третья</li>
+   <?php
+   $args = array(
+    'post_type' => 'mytab',                               
+    'post_status' => 'publish', 
+    'posts_per_page' => 3,                           
+);
+$index = 1; 
+$active = array('active','',''); 
+$query = new WP_Query($args);
+if( $query->have_posts() ){
+    while( $query->have_posts() ){            
+        $query->the_post(); ?>  
+        <li class="tab-header__item js-tab-trigger <?php echo $active[$index-1]; ?>" data-tab="<?php echo $index; ?>">
+          <?php the_title(); ?>
+        </li>
+<?php
+        $index++;        
+    }       
+}
+wp_reset_postdata();
+?>
    </ul>
    
    <!--  Контейнер с блоками, которые содержат контент вкладок   -->
@@ -45,6 +63,8 @@ wp_reset_postdata();
 
    </ul>
 </div>
+
+<?php get_template_part( 'template/super', 'tab' ); ?>
 
 
 </body>
