@@ -51,7 +51,6 @@ if( $query->have_posts() ){
     while( $query->have_posts() ){            
         $query->the_post(); ?> 
        <li class="tab-content__item js-tab-content-super <?php echo $active[$index-1]; ?>" data-tab="<?php echo $index; ?>">
-        
 
        <?php
    $args_super = array(
