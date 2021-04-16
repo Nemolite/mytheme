@@ -13,7 +13,7 @@
    <?php
 $categories = get_categories(array(
     'taxonomy' => 'category',
-
+    'number' => '3',
 	'orderby' => 'name',
 	'order' => 'ASC'
 ));
